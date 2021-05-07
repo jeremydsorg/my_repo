@@ -1,0 +1,9 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: gg-shield
+  image: gitguardian/ggshield:latest
+  commands:
+  - ggshield scan ci
