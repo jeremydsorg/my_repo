@@ -1,7 +1,10 @@
 version: 2.1
 orbs:
-    hello: circleci/hello-build@0.0.5
+  ggshield: gitguardian/ggshield@volatile
 workflows:
-    "Hello Workflow":
-        jobs:
-          - hello/hello-build
+  main:
+    jobs:
+      - ggshield/scan:
+          name: ggshield-scan
+          base_revision: << pipeline.git.base_revision >>
+          revision: <<pipeline.git.revision>>
