@@ -8,9 +8,11 @@ trigger:
 
 jobs:
 - job: GitGuardianShield
+  container:
+    image: gitguardian/ggshield:stable
+    options: -u 0
   pool:
     vmImage: 'ubuntu-latest'
-  container: gitguardian/ggshield:latest
   steps:
   - script: ggshield scan ci
     env:
